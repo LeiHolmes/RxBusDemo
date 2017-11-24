@@ -22,10 +22,6 @@ public class ReceiveFragment extends BaseFragment {
     @BindView(R.id.tv_receive_msg2)
     TextView tvReceiveMsg2;
 
-    public ReceiveFragment() {
-        compositeDisposable = new CompositeDisposable();
-    }
-
     @Override
     protected int getLayoutId() {
         return R.layout.fragment_receive;

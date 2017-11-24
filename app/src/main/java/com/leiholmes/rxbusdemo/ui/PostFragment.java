@@ -22,10 +22,6 @@ public class PostFragment extends BaseFragment {
     @BindView(R.id.tv_post_msg2)
     EditText tvPostMsg2;
 
-    public PostFragment() {
-        compositeDisposable = new CompositeDisposable();
-    }
-
     @Override
     protected int getLayoutId() {
         return R.layout.fragment_post;
