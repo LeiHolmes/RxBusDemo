@@ -6,13 +6,13 @@ package com.leiholmes.rxbusdemo.entity;
  * Date           2017/11/24
  */
 
-public class PostMessage1 {
+public class PostMessage {
     private String message;
 
-    public PostMessage1() {
+    public PostMessage() {
     }
 
-    public PostMessage1(String message) {
+    public PostMessage(String message) {
         this.message = message;
     }
 
@@ -26,7 +26,7 @@ public class PostMessage1 {
 
     @Override
     public String toString() {
-        return "PostMessage1{" +
+        return "PostMessage{" +
                 "message='" + message + '\'' +
                 '}';
     }

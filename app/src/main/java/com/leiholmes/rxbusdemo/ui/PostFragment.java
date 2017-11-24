@@ -4,7 +4,7 @@ import android.widget.EditText;
 
 import com.jakewharton.rxbinding2.widget.RxTextView;
 import com.leiholmes.rxbusdemo.R;
-import com.leiholmes.rxbusdemo.entity.PostMessage1;
+import com.leiholmes.rxbusdemo.entity.PostMessage;
 import com.leiholmes.rxbusdemo.util.RxBus;
 
 import butterknife.BindView;
@@ -31,6 +31,6 @@ public class PostFragment extends BaseFragment {
     protected void onFragViewCreated() {
         addDisposable(RxTextView.textChanges(tvPostMsg)
                 .map(CharSequence::toString)
-                .subscribe(content -> RxBus.getInstance().post(new PostMessage1(content))));
+                .subscribe(content -> RxBus.getInstance().post(new PostMessage(content))));
     }
 }

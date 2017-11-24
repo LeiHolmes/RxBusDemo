@@ -3,7 +3,7 @@ package com.leiholmes.rxbusdemo.ui;
 import android.widget.TextView;
 
 import com.leiholmes.rxbusdemo.R;
-import com.leiholmes.rxbusdemo.entity.PostMessage1;
+import com.leiholmes.rxbusdemo.entity.PostMessage;
 import com.leiholmes.rxbusdemo.util.RxBus;
 
 import butterknife.BindView;
@@ -30,7 +30,7 @@ public class ReceiveFragment extends BaseFragment {
     @Override
     protected void onFragViewCreated() {
         addDisposable(RxBus.getInstance()
-                .toFlowable(PostMessage1.class)
+                .toFlowable(PostMessage.class)
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(postMessage -> tvReceiveMsg.setText(postMessage.getMessage())));
     }
