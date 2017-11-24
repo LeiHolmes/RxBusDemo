@@ -2,8 +2,11 @@ package com.leiholmes.rxbusdemo.util;
 
 
 import io.reactivex.Flowable;
+import io.reactivex.Observable;
 import io.reactivex.processors.FlowableProcessor;
 import io.reactivex.processors.PublishProcessor;
+import io.reactivex.subjects.PublishSubject;
+import io.reactivex.subjects.Subject;
 import io.reactivex.subscribers.SerializedSubscriber;
 
 /**
@@ -14,12 +17,15 @@ import io.reactivex.subscribers.SerializedSubscriber;
 
 public class RxBus {
     private static volatile RxBus instance = null;
-    //相当于Rxjava1.x中的Subject
-    private final FlowableProcessor<Object> bus;
+    //Flowable带背压
+    private final Subject<Object> busOld;
+    //Observable不带背压
+    private final FlowableProcessor<Object> bus; //带背压
 
     private RxBus() {
         //RxJava2中使用toSerialized()方法，保证线程安全
         bus = PublishProcessor.create().toSerialized();
+        busOld = PublishSubject.create().toSerialized();
     }
 
     public static synchronized RxBus getInstance() {
@@ -34,17 +40,31 @@ public class RxBus {
     }
 
     /**
-     * 发送消息
+     * 发送消息：背压
      */
     public void post(Object o) {
-        new SerializedSubscriber<>(bus).onNext(o);
+        bus.onNext(o);
+    }
+
+    /**
+     * 发送消息
+     */
+    public void postOld(Object o) {
+        busOld.onNext(o);
+    }
+
+    /**
+     * 确定接收消息的类型：背压
+     */
+    public <T> Flowable<T> toFlowable(Class<T> eventType) {
+        return bus.ofType(eventType);
     }
 
     /**
      * 确定接收消息的类型
      */
-    public <T> Flowable<T> toFlowable(Class<T> tClass) {
-        return bus.ofType(tClass);
+    public <T> Observable<T> toObservable(Class<T> eventType) {
+        return busOld.ofType(eventType);
     }
 
     /**

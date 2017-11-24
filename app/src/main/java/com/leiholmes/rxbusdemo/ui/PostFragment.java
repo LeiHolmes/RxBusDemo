@@ -31,7 +31,7 @@ public class PostFragment extends BaseFragment {
     protected void onFragViewCreated() {
         addDisposable(RxTextView.textChanges(tvPostMsg1)
                 .map(CharSequence::toString)
-                .subscribe(content -> RxBus.getInstance().post(new PostMessage1(content))));
+                .subscribe(content -> RxBus.getInstance().postOld(new PostMessage1(content))));
         addDisposable(RxTextView.textChanges(tvPostMsg2)
                 .map(CharSequence::toString)
                 .subscribe(content -> RxBus.getInstance().post(new PostMessage2(content))));

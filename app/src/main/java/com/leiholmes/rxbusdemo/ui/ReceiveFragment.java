@@ -30,7 +30,7 @@ public class ReceiveFragment extends BaseFragment {
     @Override
     protected void onFragViewCreated() {
         addDisposable(RxBus.getInstance()
-                .toFlowable(PostMessage1.class)
+                .toObservable(PostMessage1.class)
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(postMessage1 -> tvReceiveMsg1.setText(postMessage1.getMessage())));
         addDisposable(RxBus.getInstance()
