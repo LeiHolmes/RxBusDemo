@@ -68,9 +68,16 @@ public class RxBus {
     }
 
     /**
-     * 判断是否有订阅者
+     * 判断是否有订阅者：背压
      */
     public boolean hasSubscribers() {
         return bus.hasSubscribers();
+    }
+
+    /**
+     * 判断是否有订阅者
+     */
+    public boolean hasObservers() {
+        return busOld.hasObservers();
     }
 }
