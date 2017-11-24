@@ -9,7 +9,6 @@ import com.leiholmes.rxbusdemo.entity.PostMessage2;
 import com.leiholmes.rxbusdemo.util.RxBus;
 
 import butterknife.BindView;
-import io.reactivex.disposables.CompositeDisposable;
 
 /**
  * Description:   发送消息的Fragment
