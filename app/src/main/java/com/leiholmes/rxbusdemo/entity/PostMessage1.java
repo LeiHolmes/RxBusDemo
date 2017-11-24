@@ -1,18 +1,18 @@
 package com.leiholmes.rxbusdemo.entity;
 
 /**
- * Description:   消息实体
+ * Description:   消息实体1
  * author         xulei
  * Date           2017/11/24
  */
 
-public class PostMessage {
+public class PostMessage1 {
     private String message;
 
-    public PostMessage() {
+    public PostMessage1() {
     }
 
-    public PostMessage(String message) {
+    public PostMessage1(String message) {
         this.message = message;
     }
 
@@ -26,7 +26,7 @@ public class PostMessage {
 
     @Override
     public String toString() {
-        return "PostMessage{" +
+        return "PostMessage1{" +
                 "message='" + message + '\'' +
                 '}';
     }
