@@ -5,7 +5,7 @@
 ### BaseFragment
 封装的基本Fragment，主要是用来统一对Disposable进行add与clear，及ButterKnife绑定与解绑
 ### MainActivity
-入口Activity
+入口Activity，包含一个PostFragment与ReceiveFragment
 ### PostFragment
 发送bus消息的Fragment
 ### ReceiveFragment
