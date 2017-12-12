@@ -5,6 +5,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 
 import com.leiholmes.rxbusdemo.R;
+
 /**
  * Description:   入口Activity
  * author         xulei
